@@ -1,0 +1,49 @@
+/**
+ * Design tokens for marketing surfaces (Landing / Auth / Dashboard).
+ * Studio keeps its existing dark tokens from src/lib/theme.ts untouched.
+ *
+ * Components reference these via Tailwind arbitrary values, e.g.
+ * `bg-[var(--marketing-bg)]`, rather than extending tailwind.config —
+ * we don't have that file's current contents on disk, so this avoids
+ * guessing at (and possibly clobbering) its existing structure.
+ */
+ :root {
+    /* Background */
+    --marketing-bg: #09090b;
+    --marketing-bg-soft: #111114;
+    --marketing-panel: rgba(16, 185, 129, 0.03);
+    --marketing-border: rgba(255, 255, 255, 0.08);
+    --marketing-border-strong: rgba(255, 255, 255, 0.14);
+    --marketing-border-emerald: rgba(16, 185, 129, 0.25);
+  
+    /* Text */
+    --marketing-text: #fafafa;
+    --marketing-text-muted: rgba(255, 255, 255, 0.65);
+    --marketing-text-subtle: rgba(255, 255, 255, 0.4);
+    --marketing-text-disabled: rgba(255, 255, 255, 0.25);
+  
+    /* Accents */
+    --marketing-emerald: #10b981;
+    --marketing-emerald-glow: rgba(16, 185, 129, 0.4);
+    --marketing-amber: #f59e0b;
+    --marketing-rose: #f43f5e;
+    --marketing-rose-glow: rgba(244, 63, 94, 0.35);
+    --marketing-blue: #3b82f6;
+  }
+  
+  /* Used by src/vfx/DataStream.tsx (Act 1). Duration is set per-stream via
+     the --flow-duration custom property, controlled by cursor position. */
+  @keyframes flow-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .marketing-flow-track {
+      animation: none !important;
+    }
+  }

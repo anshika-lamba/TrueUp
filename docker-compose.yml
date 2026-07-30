@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      target: builder # If you want to use the build stage for dev, though typically you'd use a generic node image
+    image: node:20-alpine
+    command: npm run dev -- --host
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
